@@ -4,7 +4,7 @@ import {Provider } from 'react-redux'
 import {createStore} from 'redux'
 
 
-const initialState = { countryList: [],countryListName: [],countryListRegion: [],mode: "true",countryClick: []}
+const initialState = { countryList: [],countryListName: [],countryListRegion: [],mode: "true",countryClick: [],countryname: ""}
 
  
 function reducer(state,action) {
@@ -17,19 +17,22 @@ function reducer(state,action) {
       return {...state , countryList: action.payload}
     }
     case 'SET_COUNTRY_BY_NAME':{
+       const countryname= action.payload
       if (action.payload.length > 0 ){
         const countryListName = state.countryList.filter((country)=>{ return   country.name.toLowerCase().includes(action.payload.toLowerCase())  })
-        
-      
-        return{...state, countryListName }
+        return{...state, countryListName,countryname }
+
       }
-      return {...state, countryListName: []}
+      
+      return {...state, countryListName: [],countryname: ''}
     }
     case 'SET_COUNTRY_BY_REGION':{
+
+        
       if (action.payload !== '...' ){
        const countryListRegion = state.countryList.filter((country)=> country.region.toLowerCase().includes(action.payload.toLowerCase()) )
-      
-        return{...state, countryListRegion }
+
+        return{...state, countryListRegion  }
       }
       return {...state, countryListRegion: []}
     }

@@ -53,6 +53,7 @@ export default function Search() {
 
 
     const mode = useSelector((state)=> state.mode)
+    let countryname= useSelector((state)=> state.countryname)
  const dispatch = useDispatch()
 
 var obtenerRef= React.createRef();
@@ -62,6 +63,8 @@ function active (){
         payload: obtenerRef.current.value
     
     })
+
+    countryname = obtenerRef.current.value
  
 }
 function activation(event){
@@ -74,7 +77,7 @@ function activation(event){
  }
     return (
         <SearchStyled mode={mode}>
-            <input onKeyUp={active} ref={obtenerRef} type="text"  placeholder="Busca un pais..."/> 
+            <input onKeyUp={active} ref={obtenerRef} type="text"  defaultValue={countryname} placeholder="Busca un pais..."/> 
             <br/> 
             <select onChange={activation} name="region"> 
             <option value="Elige"> Elige una opcion</option>

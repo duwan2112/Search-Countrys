@@ -32,6 +32,39 @@ img{
 
 `
 
+export const CountryStyledMax = styled(CountryStyled)`
+display: flex;
+align-items: center;
+
+@media screen and (min-width: 1024px){
+   width: 100%;
+   img{ 
+      opacity:  ${(props)=> props.mode === "true" ? "1" : ".7"    };
+      width: 50%;
+       margin-left: 20px;
+      }
+  .details{
+    width: 50%;
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 30px;
+  }
+} 
+     @media screen and (max-width: 1024px)
+     {
+       width: 70%;
+       flex-direction: column;
+       .details{
+         width: 90%;
+         display: flex; 
+         flex-direction: column;
+         text-align: left;
+       }
+
+     }
+        `
+
 
 
 export default function Country(props) {
@@ -61,6 +94,7 @@ export default function Country(props) {
         </CountryStyled>
     )
 }
+
 
 
 

@@ -42,7 +42,7 @@ export default function Navbar() {
     return (
       
         <NavbarStyled mode={mode}>
-              <Link to="/"> <h2>Te amo ñovia</h2> </Link> 
+              <Link to="/"> <h2>This is a world</h2> </Link> 
            
             <ModeDark/> 
         </NavbarStyled>

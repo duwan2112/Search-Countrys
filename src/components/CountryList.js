@@ -26,7 +26,7 @@ align-items: center;
 
 
 export default function CountryList() {
-
+const dispatch = useDispatch()
 const state = useSelector((state) => {
   if( state.countryListName.length >0){
     return state.countryListName
@@ -34,10 +34,9 @@ const state = useSelector((state) => {
   else if (state.countryListRegion.length > 0){
     return state.countryListRegion
   }
-  
   return state.countryList
 } )
-const dispatch = useDispatch()
+
 
 
 
